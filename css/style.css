@@ -77,10 +77,11 @@ font-family: Futura;
         width: 15%;
     }
     .mainHeader{
-        display: block;
+        display: none;
     }
     .mobileHeader{
-        display:none;
+        display:block;
+        margin-left:1%
     }
     .menuItems{
         margin:1%;
@@ -114,7 +115,7 @@ font-family: Futura;
     .titleContainer{
         text-align:center;
     }
-    .menuItems:hover{
+    .scrollable:hover{
         overflow-y: scroll;
     }
     .regTitle{
