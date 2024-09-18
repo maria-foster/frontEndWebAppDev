@@ -1,0 +1,30 @@
+
+/* Nav bar */
+
+.hamburgerIcon{
+    float: right;
+    margin: .5%;
+}
+.menuItemColors, .menuItemContent{
+    background-color:grey;
+}
+
+.title{
+    margin:0px;
+    font-family: Futura;
+}
+.menuItems{ 
+    padding-bottom: 2.5%;
+}
+
+p{
+    padding: 1%;
+    color: white;
+    font-family: Futura;
+}
+
+.mainHeader{
+font-family: Futura;
+display: block;
+}
+
