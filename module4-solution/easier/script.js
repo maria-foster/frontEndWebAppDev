@@ -44,23 +44,18 @@ function isJName(name){
 
 }
 
-function isJNameReduce(jNames, name){
+function isJNameReduce(initialValue, name){
   if(name.charAt(0).toLowerCase() === 'j'){
-    jNames = jNames + name
-    byeSpeaker.speak(name);
+    initialValue.bye.push(name)
+  }
+  else{
+    initialValue.hello.push(name)
   }
   
-  return jNames
+  return initialValue
 }
 
-function isNotJNameReduce(jNames, name){
-  if(name.charAt(0).toLowerCase() != 'j'){
-    jNames = jNames + name
-    helloSpeaker.speak(name);
-  }
-  
-  return jNames
-}
+
 
 (function () {
 
@@ -77,11 +72,15 @@ names.map((x) => isJName(x));
 
 //  REDUCING 
 console.log("Reducing: ")
-jNames = [] 
-jNames = names.reduce(isJNameReduce, jNames)
+initialValue = {hello: [], bye: []}
+initialValue = names.reduce(isJNameReduce, initialValue)
 
-notJNames = []
-notJNames = names.reduce(isNotJNameReduce, notJNames)
+for (var i = 0; i < initialValue.hello .length; i++) {
+  helloSpeaker.speak(initialValue.hello[i]);
+}
+for (var i = 0; i < initialValue.bye .length; i++) {
+  byeSpeaker.speak(initialValue.bye[i]);
+}
 
 
 //  For loop 
