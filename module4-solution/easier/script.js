@@ -43,6 +43,25 @@ function isJName(name){
   }
 
 }
+
+function isJNameReduce(jNames, name){
+  if(name.charAt(0).toLowerCase() === 'j'){
+    jNames = jNames + name
+    byeSpeaker.speak(name);
+  }
+  
+  return jNames
+}
+
+function isNotJNameReduce(jNames, name){
+  if(name.charAt(0).toLowerCase() != 'j'){
+    jNames = jNames + name
+    helloSpeaker.speak(name);
+  }
+  
+  return jNames
+}
+
 (function () {
 
 var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
@@ -52,8 +71,21 @@ var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula"
 // using either the helloSpeaker's or byeSpeaker's 'speak' method.
 // See Lecture 50, part 1
 
+//  MAPPING
+console.log("MAPPING: ")
 names.map((x) => isJName(x));
 
+//  REDUCING 
+console.log("Reducing: ")
+jNames = [] 
+jNames = names.reduce(isJNameReduce, jNames)
+
+notJNames = []
+notJNames = names.reduce(isNotJNameReduce, notJNames)
+
+
+//  For loop 
+console.log("Traditional For: ")
 for (var i = 0; i < names.length; i++) {
 
   // STEP 11: (NOTHING TO DO. ALREADY DONE FOR YOU)
