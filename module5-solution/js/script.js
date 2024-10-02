@@ -14,6 +14,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 var dc = {};
 
 var homeHtmlUrl = "snippets/home-snippet.html";
+var aboutURL = "snippets/about.html";
 var allCategoriesUrl =
   "https://coursera-jhu-default-rtdb.firebaseio.com/categories.json";
 var categoriesTitleHtml = "snippets/categories-title-snippet.html";
@@ -91,6 +92,23 @@ $ajaxUtils.sendGetRequest(
 });
 // *** finish **
 
+function buildAndShowAboutHTML () {
+  $ajaxUtils.sendGetRequest(
+    aboutURL, function (aboutHtml) {
+      var j = 1 
+      var numStars = randomInt() 
+      while(j < numStars) {
+        aboutHtml = insertProperty(aboutHtml, "class" + String(j), "fa fa-star")
+          j++;
+      }
+      while(j < 6){
+        aboutHtml = insertProperty(aboutHtml, "class" + String(j), "fa fa-star-o")
+        j++;
+      }
+      let resp =  insertHtml("#main-content",aboutHtml )
+      return resp
+    }, false);
+}
 
 // Builds HTML for the home page based on categories array
 // returned from the server.
@@ -100,13 +118,13 @@ function buildAndShowHomeHTML (categories) {
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
     function (homeHtml) {
-
+      
       // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
       // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
       // variable's name implies it expects.
 
       var chosenCategoryShortName = "'" + chooseRandomCategory(categories).short_name + "'"
-      
+
       // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
       // chosen category from STEP 2. Use existing insertProperty function for that purpose.
       // Look through this code for an example of how to do use the insertProperty function.
@@ -150,6 +168,13 @@ dc.loadMenuCategories = function () {
   $ajaxUtils.sendGetRequest(
     allCategoriesUrl,
     buildAndShowCategoriesHTML);
+};
+
+// Load the menu categories view
+dc.loadAbout = function () {
+  showLoading("#main-content");
+  //buildAndShowHomeHTML(request)
+  buildAndShowAboutHTML();
 };
 
 
@@ -347,3 +372,7 @@ function insertItemPortionName(html,
 global.$dc = dc;
 
 })(window);
+
+function randomInt() {
+  return Math.random() * 6
+}
