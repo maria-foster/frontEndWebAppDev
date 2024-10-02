@@ -97,7 +97,8 @@ function buildAndShowAboutHTML () {
     aboutURL, function (aboutHtml) {
       var j = 1 
       var numStars = randomInt() 
-      while(j < numStars) {
+      aboutHtml = insertProperty(aboutHtml, "rating", numStars)
+      while(j < numStars + 1) {
         aboutHtml = insertProperty(aboutHtml, "class" + String(j), "fa fa-star")
           j++;
       }
@@ -374,5 +375,5 @@ global.$dc = dc;
 })(window);
 
 function randomInt() {
-  return Math.random() * 6
+  return Math.round(Math.random() * 6)
 }
