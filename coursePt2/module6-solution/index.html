@@ -21,10 +21,18 @@
              <button ng-click="checkIfTooMuch()" class="btn btn-default">Check If Too Much</button>
          </div>
          <div  class="form-group message">
-          <p ng-bind="retVal"></p>
+          <p ng-bind="retVal" ng-class="fontColor"></p>
            <!-- Your message can go here. -->
          </div>
    </div>
    <script src="app.js"></script>
 </body>
+<style>
+  .Red{
+    color: red;
+  }
+  .Green{
+    color:green;
+  }
+</style>
 </html>
