@@ -11,6 +11,7 @@ app.controller('lunchCtrl', function($scope) {
     }
     $scope.checkIfTooMuch = function() {
         split = $scope.lunchMenu.split(",")
+        // This line verifies that ,,, and , , , , are not counteed
         $scope.retVal = split.includes(" ") || split.includes("") ? $scope.dict[0] : $scope.lunchMenu == "" ? $scope.dict[0] : split.length > 3 ?  $scope.dict[2] : $scope.dict[1]
         $scope.lunchMenu = ""
         $scope.fontColor = $scope.retVal == "Enjoy!" || $scope.retVal == "Too Much" ? "Green" : "Red"
