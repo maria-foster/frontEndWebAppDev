@@ -7,10 +7,15 @@ var app = angular.module("ShoppingListCheckOff", [])
             this.bought.push(itemBought);
             index = this.toBuy.indexOf(itemBought)
             this.toBuy.splice(index, 1)
-            console.log(this.toBuy)
         }
     })
 
+app.filter('angularCustomCurrency', function() {
+        return function(item) {
+            totalCost = item.quantity * item.pricePerItem
+            return "$$$" + String(totalCost)
+        }
+     })
 app.controller('ToBuyController', function ($scope, ShoppingListCheckOffService) { 
     $scope.ShoppingListCheckOffService= ShoppingListCheckOffService;
     $scope.toBuy = ShoppingListCheckOffService.toBuy
@@ -21,3 +26,4 @@ app.controller('AlreadyBoughtController', function ($scope, ShoppingListCheckOff
     $scope.bought = ShoppingListCheckOffService.bought
 
  })
+
