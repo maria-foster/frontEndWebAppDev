@@ -1,6 +1,6 @@
 var app = angular.module("ShoppingListCheckOff", [])
     .service('ShoppingListCheckOffService', function () {
-        this.toBuy = [ {name: "cookies", quantity: 10, pricePerItem: 1 }, {name: "pies", quantity: 10, pricePerItem: 1 }, {name: "doritos", quantity: 10, pricePerItem: 1 }, {name: "chickens", quantity: 10, pricePerItem: 1 }]
+        this.toBuy = [ {name: "cookies", quantity: 10, pricePerItem: 1.5 }, {name: "pies", quantity: 10, pricePerItem: 1 }, {name: "doritos", quantity: 10, pricePerItem: 1 }, {name: "chickens", quantity: 10, pricePerItem: 1 }]
         this.bought = []
         // Service logic here
         this.buy = function (itemBought) {
@@ -13,7 +13,7 @@ var app = angular.module("ShoppingListCheckOff", [])
 app.filter('angularCustomCurrency', function() {
         return function(item) {
             totalCost = item.quantity * item.pricePerItem
-            return "$$$" + String(totalCost)
+            return "$$$" + totalCost.toFixed(2)
         }
      })
 app.controller('ToBuyController', function ($scope, ShoppingListCheckOffService) { 
