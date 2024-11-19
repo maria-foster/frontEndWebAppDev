@@ -2,15 +2,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!--  Libraries -->
 <script src="js/angular-ui-router.min.js"></script>
 <script src="js/angular.min.js"></script>
+
+<!-- Modules  -->
 <script src="menuapp.module.js"></script>
+
+
+<!--  Routes  -->
+<script src="routes.js"></script>
+
+<!-- Services  -->
+<script src="services/data.module.js"></script>
+<script src="services/menudata.service.js"></script>
+
+<!-- Category Artifacts  -->
+<script src="components/categories/categories.component.js"></script>
+
+<!-- Item artifacts  -->
+<script src="components/items/items.component.js"></script>
+
 <title>Menu App</title>
 </head>
 
-<body ng-app="MenuApp">
-<categories></categories>
-<items></items>
+<body>
 </body>
 
 </html>
