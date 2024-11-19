@@ -1,4 +1,5 @@
-component('items', {
+angular.module('MenuApp')
+.component('items', {
     templateURL: 'items.html',
     controller: ItemsController,
     binding : {
