@@ -1,0 +1,6 @@
+angular.module("MenuApp", [])
+.controller('ItemsController', ItemsController)
+.controller('CategoriesController', CategoriesController)
+.service('MenuDataService', MenuDataService)
+.module('Data', Data)
+.config(RoutesConfig)
