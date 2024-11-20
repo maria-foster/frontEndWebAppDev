@@ -9,4 +9,4 @@
         mainMenu.categories = [{Name : "test 1"}, {Name: "test 2"}]
         mainMenu.items = [{Name : "test 3"}, {Name: "test 4"}]
     }
-})
+})();
