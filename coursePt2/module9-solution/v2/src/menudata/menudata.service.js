@@ -11,7 +11,7 @@
             console.log("Getting all categories ..... ")
             var response = $http({
                 method: "GET",
-                url: 'https://coursera-jhu-default-rtdb.firebaseio.com/categories.json)'
+                url: 'https://coursera-jhu-default-rtdb.firebaseio.com/categories.json'
             })
             return response;
             

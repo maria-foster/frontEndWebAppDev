@@ -1,6 +1,6 @@
-<h1>All Categories</h1> 
+<h1>All Categories</h1>
 <ol>
-    <li ng-repeat="item in $ctrl.categories">
+    <li ng-repeat="item in $ctrl.categories" ui-sref="items({categoryShort:item.short_name">
         {{item.name}}
     </li>
 </ol>
