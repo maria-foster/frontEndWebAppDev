@@ -11,12 +11,17 @@
         $stateProvider
         .state('home', {
             url: '/',
-            templateUrl: './src/menudata/templates/home.template.html'
+            templateUrl: 'src/menudata/templates/home.template.html'
         })
         .state('menuData', {
             url: '/menuData',
             templateUrl: 'src/menudata/templates/main-menudata.template.html',
-            controller: 'MainMenuDataController as mainMenu'
+            controller: 'MainMenuDataController as mainMenu',
+            resolve: {
+                categories: ['MenuDataService', function (MenuDataService){
+                    return MenuDataService.getAllCategories();
+                }]
+            }
         })
 
     }
