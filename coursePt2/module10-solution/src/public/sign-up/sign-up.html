@@ -1,3 +1,45 @@
 <div class="container">
     <h1>SIGN UP</h1> 
+    <div>
+        <form name="signupForm">
+          <label>
+             First name:
+             <input style="color:black; display:block;" type="text" name="firstName" ng-model="signCtrl.user.firstName" required>
+          </label>
+          <label>
+             Last name:
+             <input style="color:black; display:block;" type="text" name="lastName" ng-model="signCtrl.user.lastName" required>
+          </label>
+          <label>
+            Email:
+            <input style="color:black; display:block;" type="text" name="email" ng-model="signCtrl.user.email" required>
+         </label>
+         <label>
+            Phone Number
+            <input style="color:black; display:block;" type="text" name="phoneNumber" ng-model="signCtrl.user.phoneNumber" required>
+         </label>
+         <label>
+            Favorite Category
+         <select ng-model="signCtrl.selectedCategory"  style="display:block;" ng-change="signCtrl.getMenuItems()" ng-options="x.name for x in signCtrl.menuCategories">
+          </select>
+        </label>
+        <label ng-if="signCtrl.selectedCategory">
+            Favorite Meal
+         <select ng-model="signCtrl.selectedMenuItem"  style="display:block;" ng-change="" ng-options="x.name for x in signCtrl.menuItems">
+          </select>
+        </label>
+        <h3> {{signCtrl.user.firstName}} </h3>
+          <h1>You selected: {{signCtrl.selectedCategory.name}}</h1>
+          <h1>You selected: {{signCtrl.selectedMenuItem.name}}</h1>
+          <h2>{{signCtrl.menuCategories[0].name}}</h2> 
+          <h2>{{signCtrl.menuItems[0].name}}</h2> 
+        </form>
+        <hr>
+      </div>
+      <div> 
+        <!-- <ul ng-repeat="menuItem in signupCtrl.menuItems.menu_items">
+            <li>{{menuItem.short_name}}</li>
+        </ul> -->
+      </div>
+
 </div>

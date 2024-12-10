@@ -23,7 +23,12 @@ function routeConfig ($stateProvider) {
       url: '/signup',
       templateUrl: 'src/public/sign-up/sign-up.html',
       controller: 'SignupController',
-      controllerAs: 'signupCtrl',
+      controllerAs: 'signCtrl',
+      resolve: {
+        menuCategories: ['MenuService', function (MenuService) {
+          return MenuService.getCategories();
+        }]
+      }
     })
     .state('public.login', {
       url: '/login',

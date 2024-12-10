@@ -4,12 +4,21 @@
     angular.module('public')
         .controller('SignupController', SignupController);
 
-    // LoginController.$inject = ['menuCategories'];
-    // function LoginController(menuCategories) {
-    function SignupController() {
+    SignupController.$inject = ['menuCategories', 'MenuService'];
+    function SignupController( menuCategories, MenuService) {
         var $ctrl = this;
-        //   $ctrl.menuCategories = menuCategories;
-    }
+        $ctrl.user =  {firstName: '', lastName: '', email: '', phoneNumber: ''};
+        $ctrl.menuCategories = menuCategories;
+        $ctrl.selectedCategory;
+        $ctrl.menuItems; 
+        $ctrl.selectedMenuItem;
 
+        $ctrl.getMenuItems = function () {
+            MenuService.getMenuItems($ctrl.selectedCategory.short_name).then(function(response) {
+                $ctrl.menuItems = response.menu_items
+                console.log($ctrl.menuItems)
+            })
+        }
+    }
 
 })();
