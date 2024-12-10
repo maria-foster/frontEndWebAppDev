@@ -20,19 +20,22 @@
          </label>
          <label>
             Favorite Category
-         <select ng-model="signCtrl.selectedCategory"  style="display:block;" ng-change="signCtrl.getMenuItems()" ng-options="x.name for x in signCtrl.menuCategories">
+         <select ng-model="signCtrl.selectedCategory"  style="display:block;" ng-options="x.name for x in signCtrl.menuCategories"  ng-change="signCtrl.getMenuItems()" >
           </select>
         </label>
         <label ng-if="signCtrl.selectedCategory">
             Favorite Meal
-         <select ng-model="signCtrl.selectedMenuItem"  style="display:block;" ng-change="" ng-options="x.name for x in signCtrl.menuItems">
+         <select ng-model="signCtrl.selectedMenuItem"  ng-options="x.name for x in signCtrl.menuItems"  style="display:block;" ng-change="">
           </select>
         </label>
-        <h3> {{signCtrl.user.firstName}} </h3>
-          <h1>You selected: {{signCtrl.selectedCategory.name}}</h1>
-          <h1>You selected: {{signCtrl.selectedMenuItem.name}}</h1>
-          <h2>{{signCtrl.menuCategories[0].name}}</h2> 
-          <h2>{{signCtrl.menuItems[0].name}}</h2> 
+          <h3> Welcome, {{signCtrl.user.firstName}} {{signCtrl.user.lastName}} </h3>
+          <h3> Email:  {{signCtrl.user.email}} </h3>
+          <h3> Phone:  {{signCtrl.user.phoneNumber}} </h3>
+          <h3>You selected: {{signCtrl.selectedCategory.name}} as your favorite category! </h3>
+          <h3>You selected: {{signCtrl.selectedMenuItem.name}} as your favorite menu item! </h3>
+
+          <button style="color:black;" ng-click="signCtrl.saveData()" type="button">Submit</button>
+
         </form>
         <hr>
       </div>

@@ -19,6 +19,11 @@
                 console.log($ctrl.menuItems)
             })
         }
+
+        $ctrl.saveData = function() {
+            window.localStorage.setItem('menu_item', JSON.stringify($ctrl.selectedMenuItem));
+            window.localStorage.setItem('user_info', JSON.stringify($ctrl.user));
+          };
     }
 
 })();
