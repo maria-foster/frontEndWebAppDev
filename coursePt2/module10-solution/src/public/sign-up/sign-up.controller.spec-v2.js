@@ -1912,6 +1912,8 @@ describe("Spec v2: SignupController", function () {
         }
         SignupController.validateMenuItems();
         expect(SignupController.displayErrorMessage4).toBeTruthy() 
+        expect(SignupController.selectedMenuItem.short_name).toBe("D12")
+        expect(SignupController.selectedCategory.short_name).toBe("D")
     });
 
     it("should validate custom typed menu items ", function () {
