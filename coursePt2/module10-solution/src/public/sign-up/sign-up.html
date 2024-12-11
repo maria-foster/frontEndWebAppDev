@@ -35,6 +35,10 @@
           <h3>You selected: {{signCtrl.selectedMenuItem.name}} as your favorite menu item! </h3>
 
           <button style="color:black;" ng-click="signCtrl.saveData()" type="button">Submit</button>
+          <h5 ng-if="signCtrl.displaySuccessMessage">Your information has been saved</h5>
+          <h5 ng-if="signCtrl.displayErrorMessage1">You are missing a required field</h5>
+          <h5 ng-if="signCtrl.displayErrorMessage2">Your phone number should not contain any characters </h5>
+          <h5 ng-if="signCtrl.displayErrorMessage3">Your email address is not properly formatted </h5>
 
         </form>
         <hr>
