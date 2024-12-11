@@ -18,13 +18,14 @@
         $ctrl.displayErrorMessage3 = false;
 
         $ctrl.getMenuItems = function () {
+            $ctrl.selectedMenuItem = null
             MenuService.getMenuItems($ctrl.selectedCategory.short_name).then(function(response) {
                 $ctrl.menuItems = response.menu_items
             })
         }
 
         $ctrl.saveData = function() {
-            if($ctrl.user.firstName == "" || $ctrl.user.lastName == "" || $ctrl.user.phoneNumber == ""  || $ctrl.user.email == "" || !$ctrl.menuItems || !$ctrl.selectedCategory ){
+            if($ctrl.user.firstName == "" || $ctrl.user.lastName == "" || $ctrl.user.phoneNumber == ""  || $ctrl.user.email == "" || !$ctrl.selectedMenuItem || !$ctrl.selectedCategory ){
                 $ctrl.displayErrorMessage1 = true
             }else {
                 $ctrl.displayErrorMessage1 = false 
