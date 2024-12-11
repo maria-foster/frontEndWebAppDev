@@ -56,7 +56,8 @@
 
             }
             $ctrl.displayErrorMessage4 = false
-            
+            $ctrl.selectedCategory = null
+            $ctrl.selectedMenuItem = null
 
         }
         $ctrl.saveData = function () {

@@ -35,7 +35,7 @@
                 </span>
             </label>
             <div ng-if="!signCtrl.displayErrorMessage4">
-                <label ng-if="!signCtrl.displayErrorMessage4">
+                <label>
                     Favorite Category
                     <select ng-model="signCtrl.selectedCategory" style="display:block;"
                         ng-options="x.name for x in signCtrl.menuCategories" ng-change="signCtrl.getMenuItems()">
@@ -54,7 +54,7 @@
                     ng-change="signCtrl.validateMenuItem()" ng-model="signCtrl.menuItemNumber" required>
                 <span style="color:red"
                     ng-show="signupForm.menuItemNumber.$dirty && signupForm.menuItemNumber.$invalid">
-                    <span ng-show="signupForm.menuItemNumber.$error.required">Phone Number is required.</span>
+                    <span ng-show="signupForm.menuItemNumber.$error.required">Menu Item Number is required.</span>
                 </span>
             </label>
             <h3 ng-if="signupForm.firstName.$valid && signupForm.lastName.$valid"> Welcome, {{signCtrl.user.firstName}}
