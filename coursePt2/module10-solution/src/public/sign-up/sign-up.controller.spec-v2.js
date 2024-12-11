@@ -135,7 +135,9 @@ describe("Spec v2: SignupController", function () {
 
     it("should get menu items ", function () {
         SignupController.getMenuItems();
-        expect(SignupController.menuItems.length).not.toBe(0);
+        expect(menuItems.length).not.toBe(0);
+        expect(SignupController.selectedCategory).toBeNull()
+        expect(SignupController.selectedMenuItem).toBeNull()
     });
 
     it("should validate custom typed menu items ", function () {
