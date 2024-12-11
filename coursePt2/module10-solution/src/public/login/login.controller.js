@@ -15,8 +15,6 @@
             $ctrl.menuItem = JSON.parse(window.localStorage.getItem('menu_item'));
             $ctrl.category = JSON.parse(window.localStorage.getItem('category'));
             $ctrl.user = JSON.parse(window.localStorage.getItem('user_info'));
-            console.log($ctrl.menuItem)
-            console.log($ctrl.user)
         }
     }
 
