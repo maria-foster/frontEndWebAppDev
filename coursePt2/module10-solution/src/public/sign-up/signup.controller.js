@@ -20,12 +20,10 @@
         $ctrl.getMenuItems = function () {
             MenuService.getMenuItems($ctrl.selectedCategory.short_name).then(function(response) {
                 $ctrl.menuItems = response.menu_items
-                console.log($ctrl.menuItems)
             })
         }
 
         $ctrl.saveData = function() {
-            console.log($ctrl.user.firstName == "" || $ctrl.user.lastName == "" || $ctrl.user.phoneNumber == ""  || $ctrl.user.email == "")
             if($ctrl.user.firstName == "" || $ctrl.user.lastName == "" || $ctrl.user.phoneNumber == ""  || $ctrl.user.email == "" || !$ctrl.menuItems || !$ctrl.selectedCategory ){
                 $ctrl.displayErrorMessage1 = true
             }else {
