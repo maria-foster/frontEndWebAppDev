@@ -2,7 +2,7 @@ describe("Spec v2: Login Controller", function() {
 
     beforeEach(function () {
   
-      module('ShoppingListApp');
+      module('public');
     });
   
     var $controller;
