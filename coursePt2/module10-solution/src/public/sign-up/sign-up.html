@@ -48,15 +48,15 @@
                     </select>
                 </label>
             </div>
-            <label>
-                OR Type your own!
-                <input style="color:black; display:block;" type="text" name="menuItemNumber"
-                    ng-change="signCtrl.validateMenuItem()" ng-model="signCtrl.menuItemNumber" required>
-                <span style="color:red"
-                    ng-show="signupForm.menuItemNumber.$dirty && signupForm.menuItemNumber.$invalid">
-                    <span ng-show="signupForm.menuItemNumber.$error.required">Menu Item Number is required.</span>
-                </span>
-            </label>
+            <div>
+                <label>
+                    OR Type your own!
+                    <input style="color:black; display:block;" type="text" name="menuItemNumber"
+                        ng-change="signCtrl.validateMenuItem()" ng-model="signCtrl.menuItemNumber">
+                </label>
+                <h5 ng-if="!signCtrl.displayErrorMessage4">Your custom entered menu item number does not exist </h5>
+
+            </div>
             <h3 ng-if="signupForm.firstName.$valid && signupForm.lastName.$valid"> Welcome, {{signCtrl.user.firstName}}
                 {{signCtrl.user.lastName}} </h3>
             <h3 ng-if="signupForm.email.$valid"> Email: {{signCtrl.user.email}} </h3>
@@ -72,7 +72,6 @@
             <h5 ng-if="signCtrl.displayErrorMessage1">You are missing a required field</h5>
             <h5 ng-if="signCtrl.displayErrorMessage2">Your phone number should not contain any characters </h5>
             <h5 ng-if="signCtrl.displayErrorMessage3">Your email address is not properly formatted </h5>
-            <h5 ng-if="!signCtrl.displayErrorMessage4">Your custom entered menu item number does not exist </h5>
 
         </form>
         <hr>

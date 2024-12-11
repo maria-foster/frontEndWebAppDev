@@ -10,10 +10,10 @@
         $ctrl.user = { firstName: '', lastName: '', email: '', phoneNumber: '' };
         $ctrl.menuCategories = menuCategories;
         $ctrl.allMenuItems = allMenuItems;
-        $ctrl.selectedCategory;
+        $ctrl.selectedCategory = null;
         $ctrl.menuItems;
         $ctrl.selectedMenuItem;
-        $ctrl.menuItemNumber
+        $ctrl.menuItemNumber = null;
         $ctrl.displaySuccessMessage = false;
         $ctrl.displayErrorMessage1 = false;
         $ctrl.displayErrorMessage2 = false;
