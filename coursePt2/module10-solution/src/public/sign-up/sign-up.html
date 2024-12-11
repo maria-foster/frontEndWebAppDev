@@ -5,18 +5,30 @@
           <label>
              First name:
              <input style="color:black; display:block;" type="text" name="firstName" ng-model="signCtrl.user.firstName" required>
+             <span style="color:red" ng-show="signupForm.firstName.$dirty && signupForm.firstName.$invalid">
+                <span ng-show="signupForm.firstName.$error.required">First Name is required.</span>
+                </span>
           </label>
           <label>
              Last name:
              <input style="color:black; display:block;" type="text" name="lastName" ng-model="signCtrl.user.lastName" required>
+             <span style="color:red" ng-show="signupForm.lastName.$dirty && signupForm.lastName.$invalid">
+                <span ng-show="signupForm.lastName.$error.required">Last Name is required.</span>
+                </span>
           </label>
           <label>
             Email:
             <input style="color:black; display:block;" type="text" name="email" ng-model="signCtrl.user.email" required>
+            <span style="color:red" ng-show="signupForm.email.$dirty && signupForm.email.$invalid">
+                <span ng-show="signupForm.email.$error.required">Email is required.</span>
+                </span>
          </label>
          <label>
             Phone Number
             <input style="color:black; display:block;" type="text" name="phoneNumber" ng-model="signCtrl.user.phoneNumber" required>
+            <span style="color:red" ng-show="signupForm.phoneNumber.$dirty && signupForm.phoneNumber.$invalid">
+                <span ng-show="signupForm.phoneNumber.$error.required">Phone Number is required.</span>
+                </span>
          </label>
          <label>
             Favorite Category
@@ -33,8 +45,7 @@
           <h3> Phone:  {{signCtrl.user.phoneNumber}} </h3>
           <h3>You selected: {{signCtrl.selectedCategory.name}} as your favorite category! </h3>
           <h3>You selected: {{signCtrl.selectedMenuItem.name}} as your favorite menu item! </h3>
-
-          <button style="color:black;" ng-click="signCtrl.saveData()" type="button">Submit</button>
+          <button ng-disabled="signupForm.firstName.$invalid || signupForm.lastName.$invalid || signupForm.email.$invalid || signupForm.phoneNumber.$invalid" style="color:black;" ng-click="signCtrl.saveData()" type="button">Submit</button>
           <h5 ng-if="signCtrl.displaySuccessMessage">Your information has been saved</h5>
           <h5 ng-if="signCtrl.displayErrorMessage1">You are missing a required field</h5>
           <h5 ng-if="signCtrl.displayErrorMessage2">Your phone number should not contain any characters </h5>
