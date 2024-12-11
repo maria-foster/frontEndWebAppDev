@@ -1,63 +1,86 @@
 <div class="container">
-    <h1>SIGN UP</h1> 
+    <h1>SIGN UP</h1>
     <div>
         <form name="signupForm">
-          <label>
-             First name:
-             <input style="color:black; display:block;" type="text" name="firstName" ng-model="signCtrl.user.firstName" required>
-             <span style="color:red" ng-show="signupForm.firstName.$dirty && signupForm.firstName.$invalid">
-                <span ng-show="signupForm.firstName.$error.required">First Name is required.</span>
+            <label>
+                First name:
+                <input style="color:black; display:block;" type="text" name="firstName"
+                    ng-model="signCtrl.user.firstName" required>
+                <span style="color:red" ng-show="signupForm.firstName.$dirty && signupForm.firstName.$invalid">
+                    <span ng-show="signupForm.firstName.$error.required">First Name is required.</span>
                 </span>
-          </label>
-          <label>
-             Last name:
-             <input style="color:black; display:block;" type="text" name="lastName" ng-model="signCtrl.user.lastName" required>
-             <span style="color:red" ng-show="signupForm.lastName.$dirty && signupForm.lastName.$invalid">
-                <span ng-show="signupForm.lastName.$error.required">Last Name is required.</span>
+            </label>
+            <label>
+                Last name:
+                <input style="color:black; display:block;" type="text" name="lastName" ng-model="signCtrl.user.lastName"
+                    required>
+                <span style="color:red" ng-show="signupForm.lastName.$dirty && signupForm.lastName.$invalid">
+                    <span ng-show="signupForm.lastName.$error.required">Last Name is required.</span>
                 </span>
-          </label>
-          <label>
-            Email:
-            <input style="color:black; display:block;" type="text" name="email" ng-model="signCtrl.user.email" required>
-            <span style="color:red" ng-show="signupForm.email.$dirty && signupForm.email.$invalid">
-                <span ng-show="signupForm.email.$error.required">Email is required.</span>
+            </label>
+            <label>
+                Email:
+                <input style="color:black; display:block;" type="text" name="email" ng-model="signCtrl.user.email"
+                    required>
+                <span style="color:red" ng-show="signupForm.email.$dirty && signupForm.email.$invalid">
+                    <span ng-show="signupForm.email.$error.required">Email is required.</span>
                 </span>
-         </label>
-         <label>
-            Phone Number
-            <input style="color:black; display:block;" type="text" name="phoneNumber" ng-model="signCtrl.user.phoneNumber" required>
-            <span style="color:red" ng-show="signupForm.phoneNumber.$dirty && signupForm.phoneNumber.$invalid">
-                <span ng-show="signupForm.phoneNumber.$error.required">Phone Number is required.</span>
+            </label>
+            <label>
+                Phone Number
+                <input style="color:black; display:block;" type="text" name="phoneNumber"
+                    ng-model="signCtrl.user.phoneNumber" required>
+                <span style="color:red" ng-show="signupForm.phoneNumber.$dirty && signupForm.phoneNumber.$invalid">
+                    <span ng-show="signupForm.phoneNumber.$error.required">Phone Number is required.</span>
                 </span>
-         </label>
-         <label>
-            Favorite Category
-         <select ng-model="signCtrl.selectedCategory"  style="display:block;" ng-options="x.name for x in signCtrl.menuCategories"  ng-change="signCtrl.getMenuItems()" >
-          </select>
-        </label>
-        <label ng-if="signCtrl.selectedCategory">
-            Favorite Meal
-         <select ng-model="signCtrl.selectedMenuItem"  ng-options="x.name for x in signCtrl.menuItems"  style="display:block;" ng-change="">
-          </select>
-        </label>
-          <h3 ng-if="signupForm.firstName.$valid && signupForm.lastName.$valid"> Welcome, {{signCtrl.user.firstName}} {{signCtrl.user.lastName}} </h3>
-          <h3 ng-if="signupForm.email.$valid"> Email:  {{signCtrl.user.email}} </h3>
-          <h3 ng-if="signupForm.phoneNumber.$valid"> Phone:  {{signCtrl.user.phoneNumber}} </h3>
-          <h3 ng-if="signCtrl.selectedCategory">You selected: {{signCtrl.selectedCategory.name}} as your favorite category! </h3>
-          <h3 ng-if="signCtrl.selectedMenuItem">You selected: {{signCtrl.selectedMenuItem.name}} as your favorite menu item! </h3>
-          <button ng-disabled="signupForm.firstName.$invalid || signupForm.lastName.$invalid || signupForm.email.$invalid || signupForm.phoneNumber.$invalid" style="color:black;" ng-click="signCtrl.saveData()" type="button">Submit</button>
-          <h5 ng-if="signCtrl.displaySuccessMessage">Your information has been saved</h5>
-          <h5 ng-if="signCtrl.displayErrorMessage1">You are missing a required field</h5>
-          <h5 ng-if="signCtrl.displayErrorMessage2">Your phone number should not contain any characters </h5>
-          <h5 ng-if="signCtrl.displayErrorMessage3">Your email address is not properly formatted </h5>
+            </label>
+            <div ng-if="!signCtrl.displayErrorMessage4">
+                <label ng-if="!signCtrl.displayErrorMessage4">
+                    Favorite Category
+                    <select ng-model="signCtrl.selectedCategory" style="display:block;"
+                        ng-options="x.name for x in signCtrl.menuCategories" ng-change="signCtrl.getMenuItems()">
+                    </select>
+                </label>
+                <label ng-if="signCtrl.selectedCategory">
+                    Favorite Meal
+                    <select ng-model="signCtrl.selectedMenuItem" ng-options="x.name for x in signCtrl.menuItems"
+                        style="display:block;" ng-change="">
+                    </select>
+                </label>
+            </div>
+            <label>
+                OR Type your own!
+                <input style="color:black; display:block;" type="text" name="menuItemNumber"
+                    ng-change="signCtrl.validateMenuItem()" ng-model="signCtrl.menuItemNumber" required>
+                <span style="color:red"
+                    ng-show="signupForm.menuItemNumber.$dirty && signupForm.menuItemNumber.$invalid">
+                    <span ng-show="signupForm.menuItemNumber.$error.required">Phone Number is required.</span>
+                </span>
+            </label>
+            <h3 ng-if="signupForm.firstName.$valid && signupForm.lastName.$valid"> Welcome, {{signCtrl.user.firstName}}
+                {{signCtrl.user.lastName}} </h3>
+            <h3 ng-if="signupForm.email.$valid"> Email: {{signCtrl.user.email}} </h3>
+            <h3 ng-if="signupForm.phoneNumber.$valid"> Phone: {{signCtrl.user.phoneNumber}} </h3>
+            <h3 ng-if="signCtrl.selectedCategory">You selected: {{signCtrl.selectedCategory.name}} as your favorite
+                category! </h3>
+            <h3 ng-if="signCtrl.selectedMenuItem">You selected: {{signCtrl.selectedMenuItem.name}} as your favorite menu
+                item! </h3>
+            <button
+                ng-disabled="signupForm.firstName.$invalid || signupForm.lastName.$invalid || signupForm.email.$invalid || signupForm.phoneNumber.$invalid"
+                style="color:black;" ng-click="signCtrl.saveData()" type="button">Submit</button>
+            <h5 ng-if="signCtrl.displaySuccessMessage">Your information has been saved</h5>
+            <h5 ng-if="signCtrl.displayErrorMessage1">You are missing a required field</h5>
+            <h5 ng-if="signCtrl.displayErrorMessage2">Your phone number should not contain any characters </h5>
+            <h5 ng-if="signCtrl.displayErrorMessage3">Your email address is not properly formatted </h5>
+            <h5 ng-if="!signCtrl.displayErrorMessage4">Your custom entered menu item number does not exist </h5>
 
         </form>
         <hr>
-      </div>
-      <div> 
+    </div>
+    <div>
         <!-- <ul ng-repeat="menuItem in signupCtrl.menuItems.menu_items">
             <li>{{menuItem.short_name}}</li>
         </ul> -->
-      </div>
+    </div>
 
 </div>

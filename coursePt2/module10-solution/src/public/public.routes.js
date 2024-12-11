@@ -27,6 +27,9 @@ function routeConfig ($stateProvider) {
       resolve: {
         menuCategories: ['MenuService', function (MenuService) {
           return MenuService.getCategories();
+        }],
+        allMenuItems: ['MenuService', function(MenuService){
+          return MenuService.getAllMenuItems();
         }]
       }
     })

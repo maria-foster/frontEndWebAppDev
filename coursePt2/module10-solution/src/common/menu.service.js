@@ -22,6 +22,11 @@
       });
     };
 
+    service.getAllMenuItems = function () {
+      return $http.get("https://coursera-jhu-default-rtdb.firebaseio.com/menu_items.json").then(function (response) {
+        return response.data;
+    })
+  }
   
   }
 
