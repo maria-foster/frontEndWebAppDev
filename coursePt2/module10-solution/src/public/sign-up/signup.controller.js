@@ -43,6 +43,8 @@
             if(!$ctrl.displayErrorMessage3 && !$ctrl.displayErrorMessage2 && !$ctrl.displayErrorMessage1){
                 window.localStorage.setItem('menu_item', JSON.stringify($ctrl.selectedMenuItem));
                 window.localStorage.setItem('user_info', JSON.stringify($ctrl.user));
+                window.localStorage.setItem('category', JSON.stringify($ctrl.selectedCategory));
+
                 $ctrl.displaySuccessMessage = true
             }
             
