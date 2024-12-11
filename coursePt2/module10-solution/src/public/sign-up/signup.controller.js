@@ -28,9 +28,6 @@
         }
         $ctrl.validateMenuItem = function () {
             let letter = ""
-            console.log($ctrl.allMenuItems)
-            console.log($ctrl.menuItemNumber.substring(0, 2))
-            console.log($ctrl.menuItemNumber.substring(0, 1))
             if (/^[a-zA-Z]+$/.test($ctrl.menuItemNumber.substring(0, 2))) {
                 letter = $ctrl.menuItemNumber.substring(0, 2)
                 if ($ctrl.allMenuItems[letter].menu_items) {
